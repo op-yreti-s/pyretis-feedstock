@@ -2,7 +2,6 @@
 {% set version = "1.0.0" %}
 {% set sha256 = "8eb050713d58bce4a86e3f98d0bfc369674561f6c4b5599c2e7507ee8c1e0d49" %}
 
-
 package:
   name: {{ name|lower }}
   version: {{ version }}
