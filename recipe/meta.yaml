@@ -1,6 +1,6 @@
 {% set name = "pyretis" %}
-{% set version = "1.0.0" %} 
-{% set sha256 = "8eb050713d58bce4a86e3f98d0bfc369674561f6c4b5599c2e7507ee8c1e0d49" %}
+{% set version = "2.0.1" %}
+{% set sha256 = "d3d0173404dfd0a6bb0682305d67382e2994e768895835a3fbe1688be314b37f" %}
 
 package:
   name: {{ name|lower }}
@@ -12,7 +12,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 1000
+  number: 0
   skip: True  # [py2k]
   script: python setup.py install --single-version-externally-managed --record=record.txt
 
