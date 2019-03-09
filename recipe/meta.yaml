@@ -16,29 +16,43 @@ build:
   skip: True  # [py2k]
   script: python setup.py install --single-version-externally-managed --record=record.txt
 
+
 requirements:
   build:
-    - python
+    - python {{ environ.get('python_version', '3.5') }}
     - setuptools
+    - cython
+    - numpy 1.8.*  # [not (win and (py35 or py36))]
+    - numpy 1.9.*  # [win and py35]
+    - numpy 1.11.*  # [win and py36]
+    - zlib 1.2.11
+    - msinttypes  # [win and py27]
+
   run:
-    - python
+    - python {{ environ.get('python_version', '3.5') }}
+    - setuptools
+    - numpy >=1.8  # [not (win and (py35 or py36))]
+    - numpy >=1.9  # [win and py35]
+    - numpy >=1.11  # [win and py36]
+    - scipy
+    - pandas
+    - pytables
+    - zlib 1.2.11
     - colorama
     - tqdm
-    - docutils  
-    - numpy  
-    - scipy
+    - docutils
     - matplotlib
     - jinja2
-    - mdtraj
 
 test:
   imports:
+    - mdtraj
     - pyretis
 
 about:
   home: http://www.pyretis.org
   license: LGPLv2.1+
-  summary: 'PyRETIS: A well-done, medium-sized python library for rare events'
+  summary: 'PyRETIS: A well-done, medium-sized python library for rare events, DOI: 10.1002/jcc.24900'
 
 extra:
   recipe-maintainers:
