@@ -1,6 +1,6 @@
 {% set name = "pyretis" %}
-{% set version = "2.0.1" %}
-{% set sha256 = "d3d0173404dfd0a6bb0682305d67382e2994e768895835a3fbe1688be314b37f" %}
+{% set version = "2.0.3" %}
+{% set sha256 = "7f2367fe031c8c9623527e9de8c76de32ae2d865453b9797fe7a62209fba066e" %}
 
 package:
   name: {{ name|lower }}
