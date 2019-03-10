@@ -12,11 +12,15 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 1000 
-  script: python setup.py install --single-version-externally-managed --record=record.txt
+  number: 1000
   skip: True  # [py2k]
   
+  script: python setup.py install --single-version-externally-managed --record=record.txt
+
+
 requirements:
+  build:
+  
   build:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
@@ -28,27 +32,27 @@ requirements:
     - numpy
     - zlib
     - msinttypes  # [win and py27]
-
+    - mdtraj
+    
   run:
-    - python
+    - pytho
     - setuptools
     - {{ pin_compatible('numpy') }}
     - scipy
     - pandas
     - pytables
-    - zlib
+    - zlib 1.2.11
     - colorama
     - tqdm
     - docutils
     - matplotlib
     - jinja2
-    
+    - mdtraj
+
 test:
   imports:
-    - mdtraj
     - pyretis
 
- 
 about:
   home: http://www.pyretis.org
   license: LGPLv2.1+
