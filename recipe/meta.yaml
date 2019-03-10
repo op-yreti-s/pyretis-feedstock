@@ -12,43 +12,43 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 0
-  skip: True  # [py2k]
+  number: 1000 
   script: python setup.py install --single-version-externally-managed --record=record.txt
-
-
+  skip: True  # [py2k]
+  
 requirements:
   build:
-    - python {{ environ.get('python_version', '3.6') }}
+    - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
+  host:
+    - python
+    - pip
     - setuptools
     - cython
-    - numpy 1.8.*  # [not (win and (py35 or py36))]
-    - numpy 1.9.*  # [win and py35]
-    - numpy 1.11.*  # [win and py36]
-    - zlib 1.2.11
+    - numpy
+    - zlib
     - msinttypes  # [win and py27]
 
   run:
-    - python {{ environ.get('python_version', '3.6') }}
+    - python
     - setuptools
-    - numpy >=1.8  # [not (win and (py35 or py36))]
-    - numpy >=1.9  # [win and py35]
-    - numpy >=1.11  # [win and py36]
+    - {{ pin_compatible('numpy') }}
     - scipy
     - pandas
     - pytables
-    - zlib 1.2.11
+    - zlib
     - colorama
     - tqdm
     - docutils
     - matplotlib
     - jinja2
-
+    
 test:
   imports:
     - mdtraj
     - pyretis
 
+ 
 about:
   home: http://www.pyretis.org
   license: LGPLv2.1+
