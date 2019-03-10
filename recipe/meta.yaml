@@ -35,7 +35,7 @@ requirements:
     - mdtraj
     
   run:
-    - pytho
+    - python
     - setuptools
     - {{ pin_compatible('numpy') }}
     - scipy
