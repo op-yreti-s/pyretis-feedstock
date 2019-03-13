@@ -11,7 +11,7 @@ Package license: LGPLv2.1+
 
 Feedstock license: BSD 3-Clause
 
-Summary: PyRETIS: A well-done, medium-sized python library for rare events
+Summary: PyRETIS: A well-done, medium-sized python library for rare events, DOI: 10.1002/jcc.24900
 
 
 
@@ -116,4 +116,5 @@ Feedstock Maintainers
 
 * [@EnricoRiccardi](https://github.com/EnricoRiccardi/)
 * [@andersle](https://github.com/andersle/)
+* [@sroet](https://github.com/sroet/)
 
